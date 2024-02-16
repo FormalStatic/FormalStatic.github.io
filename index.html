@@ -4,43 +4,240 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="icon" href="D:\Programming\Repos\FormalStatic.github.io\images\TV.png">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <style>
-        body {
-            background-color: #B9E0F9; /* Light Blue */
-            color: #2B2B2B; /* Dark Gray */
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        
-        h1 {
-            color: #FFBB00; /* Orange */
-        }
-        
-        p {
-            margin-bottom: 20px;
-        }
-        
-        .container {
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        
-        .album-cover {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-        }
+body, html{
+  width:120%;
+  height:120%;
+  overflow:hidden;
+  font-family: 'Press Start 2P', cursive;
+  cursor: auto;
+}
+
+.center{
+  color:#fff;
+  display:flex;
+  align-items:center;
+  .text-center{
+    text-align:center;
+    width:100%;
+  }
+}
+
+h1{
+  display:inline-block;
+  padding-right:5px;
+  border-right:10px solid #fff;
+  animation:blink 1s infinite;
+  @media screen and (max-width: 370px){
+    font-size: 5vw;
+    border-right:4px solid #fff;
+  }
+}
+
+canvas {
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.image-container {
+  position: absolute;
+  bottom: 0px; /* Adjust vertical position as needed */
+  left: 20px; /* Adjust horizontal position as needed */
+}
+
+.image-container img {
+  width: 100px; /* Adjust image width as needed */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 0%; /* Optional: Round image corners */
+  
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+.title {
+  display: flex;
+  justify-content: space-between; /* Align items horizontally with space between them */
+  align-items: center; /* Align items vertically */
+}
+
+.title img {
+  order: -1; /* Change the order to -1 to move the image to the left */
+}
+
+
+.title p {
+  color: yellow;
+  margin-left: 50px;
+  rotate: 30deg;
+  animation: pulse 1s infinite;
+}
+
     </style>
+
+<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container">
-        <h1>Hawaii: Part II</h1>
-        <p>This page is inspired by the colors of the "Hawaii: Part II" album art.</p>
-        <img class="album-cover" src="album_cover.jpg" alt="Album Cover">
+<script>
+var Snow = {
+    el: "#snow",
+    density: 100000, // higher = fewer bits
+    maxHSpeed: 5, // How much do you want them to move horizontally
+    minFallSpeed: 2,
+    canvas: null,
+    ctx: null,
+    particles: [],
+    colors: [],
+    mp: 1,
+    init() {
+        this.canvas = document.querySelector(this.el);
+        this.ctx = this.canvas.getContext("2d");
+        this.reset();
+        window.addEventListener("resize", this.reset.bind(this));
+        this.render(); // Start rendering
+    },
+    reset() {
+        this.w = window.innerWidth;
+        this.h = window.innerHeight;
+        this.canvas.width = this.w;
+        this.canvas.height = this.h;
+        this.particles = [];
+        this.mp = Math.ceil(this.w * this.h / this.density);
+        for (var i = 0; i < this.mp; i++) {
+            var size = Math.random() * 4 + 5;
+            this.particles.push({
+                x: Math.random() * this.w, //x-coordinate
+                y: Math.random() * this.h, //y-coordinate
+                w: size,
+                h: size,
+                vy: this.minFallSpeed + Math.random(), //density
+                vx: (Math.random() * this.maxHSpeed) - this.maxHSpeed / 2,
+                fill: "#ffffff",
+                s: (Math.random() * 0.2) - 0.1
+            });
+        }
+    },
+    render() {
+        this.ctx.clearRect(0, 0, this.w, this.h);
+        this.particles.forEach((p, i) => {
+            p.y += p.vy;
+            p.x += p.vx;
+            this.ctx.fillStyle = p.fill;
+            this.ctx.fillRect(p.x, p.y, p.w, p.h);
+            if (p.x > this.w + 5 || p.x < -5 || p.y > this.h) {
+                p.x = Math.random() * this.w;
+                p.y = -10;
+            }
+        });
+        requestAnimationFrame(this.render.bind(this));
+    },
+    destroy() {
+        cancelAnimationFrame(this.animationFrameId);
+    }
+};
+
+document.addEventListener("DOMContentLoaded", function() {
+    Snow.init();
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  var soundImage = document.getElementById("soundImage");
+  var sound = document.getElementById("sound");
+  sound.volume = 0.1;
+  
+  soundImage.addEventListener("click", function() {
+    sound.play();
+  });
+});
+
+document.addEventListener('DOMContentLoaded', (event) => {
+      const texts = [
+        "Text 1",
+        "Text 2",
+        "Text 3",
+        "Text 4",
+        // Add more texts as needed
+      ];
+
+      function getRandomText() {
+        const randomIndex = Math.floor(Math.random() * texts.length);
+        return texts[randomIndex];
+      }
+
+      function updateRandomText() {
+        const randomTextElement = document.getElementById("randomText");
+        randomTextElement.textContent = getRandomText();
+      }
+
+      // Update text initially
+      updateRandomText();
+
+      // Update text every 5 seconds
+      setInterval(updateRandomText, 5000);
+    });
+
+</script>
+
+<canvas id="snow"></canvas>
+
+
+<div class="container">
+    <div class="nes-container is-rounded" style="color: #fff; width: 60%; border-color: #fff; background-color: rgba(100, 100, 100, 0.493); margin-bottom: 100px; ">
+        <div class="title">
+            <img class="nes-avatar is-rounded is-large" alt="Gravatar image example" src="https://avatars.githubusercontent.com/u/153864054?v=4">
+            <p id="randomText">big yes</p>
+          </div>
+        <br>
+        <p style="text-align: left;">Glorious morning</p>
+        <div style="text-align: right; ">
+          <iframe src="https://discord.com/widget?id=1136053108091396146&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>  
+        </div>
+        <div style="padding: 10px; text-align: left;">
+            <i class="nes-icon twitch is-large"></i>
+            
+            <!-- youtube -->
+            <i class="nes-icon youtube is-large"></i>
+        
+            <!-- github -->
+            <i class="nes-icon github is-large"></i> 
+            </div>
     </div>
+    
+    <div class="image-container">
+        <img src="D:\Programming\Repos\FormalStatic.github.io\images\trees.png" alt="Hawaii P.2 Trees" style="size: 100px;" id="soundImage">
+    </div>
+    <audio id="sound">
+        <source src="https://t4.bcbits.com/stream/c8495f0fab411cea4c91e56b79d5c2af/mp3-128/2986530689?p=0&ts=1708117820&t=3beb194ee75025f96bd28e35531d874dc22cb892&token=1708117820_c59682ed854f7115a545a99d3660bff34115607d" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+</div>
 </body>
 </html>
