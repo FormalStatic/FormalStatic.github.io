@@ -16,10 +16,11 @@
   </head>
 
   <body>
+    <div class="nes-container is-rounded" style="color: #fff; border-color: #fff; background-color: rgba(100, 100, 100, 0.493);">
+      <div id="main" role="main" class="container">
+        {{ content }}
+      </div>
+      {% include analytics.html %}
     </div>
-    <div id="main" role="main" class="container">
-      {{ content }}
-    </div>
-    {% include analytics.html %}
   </body>
 </html>
