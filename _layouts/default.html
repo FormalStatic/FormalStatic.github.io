@@ -4,7 +4,7 @@
 
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=700, user-scalable=0" />
+    <!-- <meta name="viewport" content="width=700, user-scalable=0" /> -->
     <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
 
     {% include meta.html %}
@@ -22,7 +22,7 @@
       body, html { font-family: 'Press Start 2P', cursive; cursor: auto; overflow-x:
       hidden; /* Hide horizontal overflow */ overflow-y: auto; /* Allow vertical
       overflow */ } /* Canvas styles */ canvas { background-color: black; position:
-      absolute; top: 0; left: 0; width: 100%; height: 100%; } .center { color:
+      fixed; top: 0; left: 0; height: auto;} .center { color:
       #fff; display: flex; align-items: center; justify-content: center; /* Center
       horizontally */ text-align: center; /* Center text */ } h1 { display: inline-block;
       padding-right: 5px; border-right: 10px solid #fff; animation: blink 1s
@@ -42,10 +42,13 @@
       Center items vertically */ } .title img { margin-right: 10px; /* Adjust
       spacing between image and text */ } .title #randomText { color: yellow;
       animation: pulse 1s infinite; width: 50%; rotate: 28deg; position: absolute;
-      right: 0; text-align: center; } .container { width: 100%; display: flex;
-      justify-content: center; align-items: center; flex-direction: column; /*
-      Center content vertically */ padding: 20px; /* Add padding around content
-      */ padding-top: 10%; } /* Adjust the NES container to fit the screen */
+        right: 0; text-align: center; } .container { width: 100%; display: flex;
+        justify-content: center; align-items: center; flex-direction: column; /*
+        Center content vertically */  /* Add padding around content
+        */ padding-top: 7%; } .container2 { width: 100%; display: flex;
+        justify-content: center; align-items: center; flex-direction: column; /*
+        Center content vertically */ padding: 20px; /* Add padding around content
+        */ padding-top: 5%; }/* Adjust the NES container to fit the screen */
       .nes-container { max-width: 800px; /* Set a maximum width */ width: 100%;
       /* Ensure it takes full width of the container */ }
     </style>
@@ -55,6 +58,8 @@
   
   <body>
     <script>
+    
+
     var Snow = {
         el: "#snow",
         density: 50000,
@@ -166,6 +171,7 @@
 
     });
 
+
     </script>
     <canvas id="snow">
     </canvas>
@@ -250,23 +256,28 @@
       </audio>
     </div>
     </div>
-    <div class="nes-container is-rounded" style=" color: #fff; border-color: #fff; background-color: rgba(100, 100, 100, 0.493); display: flex; justify-content: center; align-items: center; flex-direction: column;"></div>
-      <div class="posts">
+    <div class="container2">
+      <div class="nes-container is-rounded" style=" color: #fff; border-color: #fff; background-color: rgba(100, 100, 100, 0.493); ">
+        <header style="font-size: large;">Welcome to the show</header>
+        
+        <hr style="border-top: 3px solid #bbb">
+        <br>
 
-        {% for post in site.posts %}
-          <article class="post">
-      
-            <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-      
-            <div class="entry">
-              {{ post.excerpt }}
-            </div>
-      
-            <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-          </article>
-        {% endfor %}
-        </div>
+          {% for post in site.posts %}
+            <article class="post">
+        
+              <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+        
+              <div class="entry">
+                {{ post.excerpt }}
+              </div>
+        
+              <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+            </article>
+          {% endfor %}
+      </div>
     </div>
+  
   </body>
 </html>
 
