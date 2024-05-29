@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+<title>Document</title>
+<style>
+html, body {
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+    perspective: 340px;
+}
+
+.stars {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 2px;
+    box-shadow: -760px 305px #e0e0e0, 471px -13px #dbdbdb, -1172px -236px #f0f0f0, 1219px 417px #ebebeb, 710px -320px #e0e0e0, 33px -304px #ebebeb, -376px -238px #d1d1d1, -708px 472px #d1d1d1, 88px -162px #c4c4c4, -756px 114px #cccccc, -93px -442px #f7f7f7, 832px -470px #d9d9d9, 219px -170px #c4c4c4, -1137px -41px #ebebeb, 138px -457px whitesmoke, 162px -334px #e8e8e8, 741px -200px #d9d9d9, -1028px 261px #e3e3e3, 1093px -472px #cccccc, 179px 148px #d1d1d1, -58px -236px #e6e6e6, 171px -184px #d1d1d1, -167px 222px #fafafa, 85px 25px #dbdbdb, -322px 273px #d4d4d4, -708px -284px #e8e8e8, -1271px 444px #c7c7c7, -644px 242px #ebebeb, -746px 384px #e6e6e6, -157px 279px #fafafa, 1051px 121px #c4c4c4, 21px -328px #dedede, 812px 166px #e8e8e8, 485px -155px #f0f0f0, 1283px -440px #dbdbdb, -578px 337px #d6d6d6, -902px 256px #f0f0f0, -734px 321px #ebebeb, 1329px -286px #c9c9c9, -1460px -379px #f0f0f0, -623px 76px #dedede, -878px -342px #c4c4c4, -139px 52px #e8e8e8, -632px -148px #ebebeb, 724px 206px #e8e8e8, -379px -40px #f7f7f7, 449px -249px #ebebeb, 271px 59px #ebebeb, 512px 381px #e3e3e3, 990px 268px #e0e0e0, 1289px 317px #fcfcfc, 804px -241px #c9c9c9, -998px 275px #fafafa, -599px 356px white, 858px 367px #fafafa, 606px 409px #f7f7f7, -632px 390px #ededed, 1054px 143px #d1d1d1, 1162px -418px #cccccc, -793px 458px #d9d9d9, -824px -157px #c4c4c4, -1109px 206px whitesmoke, 649px -285px #d1d1d1, 228px -426px #d9d9d9, 927px -362px #cccccc, -563px -351px #d6d6d6, 799px -173px #cfcfcf, -846px 153px whitesmoke, -459px -392px #ebebeb, 1232px -90px #dbdbdb, -212px -283px #dbdbdb, 775px 130px #e3e3e3, -698px -297px #f7f7f7, -347px -131px #e0e0e0, -1187px -103px #c4c4c4, -1021px 229px #fcfcfc, 260px 410px #d1d1d1, -1391px -111px #ededed, 1462px -121px #f7f7f7, -906px 129px #d4d4d4, -416px -358px #c2c2c2, -1168px -300px white, 863px 369px #d4d4d4, 118px -283px #ededed, -831px 104px #d4d4d4, -1213px -136px #cfcfcf, -945px 218px #f7f7f7, 1128px 281px #ededed, 1011px 385px #f7f7f7, 502px 300px #e8e8e8, 1475px -240px #dedede, 1203px 286px white, 868px 314px #c4c4c4, -1110px -403px white, 1008px -120px #cfcfcf, -1207px -195px #d1d1d1, -1208px -247px #f2f2f2, 228px -287px #d6d6d6, 56px 162px #e6e6e6, 641px 167px #c2c2c2, -78px -311px #e6e6e6, -729px 162px #ebebeb, -891px 243px #fafafa, 424px 463px #d4d4d4, -206px -228px #dedede, -1348px -134px #cccccc, 1157px -349px #f2f2f2, -1497px 52px #c9c9c9, 115px 309px #ebebeb, 1201px 320px #e3e3e3, -1030px -208px #f7f7f7, -1419px -367px #c2c2c2, 1027px -299px #dbdbdb, -256px -75px #dedede, 880px 283px #c9c9c9, 51px -144px #c2c2c2, -998px -83px #dedede, 1411px 377px #dedede, -200px -113px #fafafa, -688px 442px #d9d9d9, 807px -72px #cccccc, 333px 279px #cfcfcf, 1223px 52px #cfcfcf, -496px 94px #f0f0f0, -115px -138px #cccccc, 1280px 192px #e8e8e8, 721px -344px white, 1171px -265px #e3e3e3, 1224px 32px whitesmoke, -891px -363px #c2c2c2, -1048px 383px #fafafa, 987px 384px #cfcfcf, 449px -137px #dbdbdb, 1196px 399px #cccccc, -526px -183px #e8e8e8, -308px 336px #e8e8e8, -762px -445px #d9d9d9, 283px -150px #fafafa, 269px -364px #d9d9d9, 215px 435px #dedede, 1339px -112px #c2c2c2, -624px -93px whitesmoke, 968px 98px #e0e0e0, 945px 402px #c7c7c7, 999px -127px #f7f7f7, -843px -305px #c7c7c7, -302px 16px #f7f7f7, 1236px 120px #e8e8e8, 754px -447px #c9c9c9, 255px 310px #e6e6e6, 290px -283px #e0e0e0, 678px -269px #f7f7f7, -454px -18px whitesmoke, -703px -33px #c4c4c4, 584px -473px #ebebeb, 395px -176px whitesmoke, -1271px -440px #e6e6e6, 181px -319px #f0f0f0, 1015px 198px #d4d4d4, 346px -254px #e6e6e6, -108px 89px #cfcfcf, -691px 356px #cfcfcf, 581px -119px #dedede, 124px 476px #d4d4d4, 845px 476px #c7c7c7, 623px -198px #c4c4c4, 489px 293px #cfcfcf, 1366px -357px #e0e0e0, -819px -295px #dbdbdb, 1131px 217px white, -804px -333px #fafafa, -640px 236px #cccccc, -1064px 249px #f0f0f0, -586px -455px #d1d1d1, -108px -38px #c2c2c2, -1287px 408px #c4c4c4, 1390px -195px #d4d4d4, 789px 215px #dbdbdb, -1116px 42px #c9c9c9, -905px -422px #c2c2c2, -1099px 85px #c4c4c4, 342px 338px #dbdbdb, -1441px -454px #cccccc, 177px -346px #c9c9c9, -1092px -290px #fcfcfc, 700px 369px #d1d1d1, 1138px 72px #e6e6e6, -442px 250px #f2f2f2, 103px 150px #d6d6d6, 178px -290px #d4d4d4, -1156px -377px #c7c7c7, -1057px 399px #e3e3e3, 1489px -224px #fcfcfc, -803px -184px #c2c2c2, 815px 375px #fafafa, -1176px 24px white, -1093px -429px #d6d6d6, -509px 22px #dbdbdb, 19px 256px #f2f2f2, -804px -135px #dedede, -490px 37px whitesmoke, -1157px -145px #c7c7c7, -613px -107px #d4d4d4, 1223px -330px #dbdbdb, -821px 228px #c9c9c9, 811px 473px #dedede, 804px -388px #e8e8e8, -675px -298px white, -1214px -193px whitesmoke, 126px 84px #f7f7f7, 1411px -368px #cfcfcf, -1071px -83px #c7c7c7, 865px -462px #ebebeb, -1027px 400px #d9d9d9, -1487px 324px #e3e3e3, 326px 480px #c2c2c2, -49px 343px #d1d1d1, 346px -169px #f0f0f0, 887px -314px #f2f2f2, 907px -236px #cccccc, 1390px -390px #dbdbdb, 1307px 350px #e8e8e8, -1150px 356px #dbdbdb, 461px 154px #c4c4c4, -775px 244px #ebebeb, -658px -68px #e8e8e8, 734px 59px #ededed, 730px -347px #e0e0e0, 390px -367px #c4c4c4, 803px 425px #ededed, -1374px -387px #fafafa, 1342px 134px #f0f0f0, -923px -276px #cfcfcf, 1178px 354px #ebebeb, -508px -114px #cccccc, -1225px -272px #cfcfcf, -75px -435px #fcfcfc, 1253px 276px whitesmoke, 5px -64px #c7c7c7, -378px -141px #e0e0e0, 388px -331px #c7c7c7, 979px 224px #f2f2f2, -358px 383px #d1d1d1, 1054px -210px #cccccc, -284px -251px #dbdbdb, -871px 237px #f7f7f7, 824px -5px #d9d9d9, 917px -280px #f7f7f7, -317px 3px #dedede, -1081px 225px #c2c2c2, -1309px -86px #ededed, -654px -158px #e8e8e8, 414px 426px #d4d4d4, -69px -306px #fafafa, 676px -241px #ededed, 135px -97px #d4d4d4, -1270px 88px #d1d1d1, -351px 97px #d9d9d9, 61px -460px #ebebeb, -976px -31px white, 535px -329px #f0f0f0, 282px -98px #dedede, -445px 469px #f7f7f7, -1331px -140px #fcfcfc, -519px -82px #c2c2c2, -886px -413px #e8e8e8, 1345px -343px #d6d6d6, -1101px -8px white, -951px -458px #f2f2f2, -57px 340px #cccccc, -846px -193px whitesmoke, -1045px 355px #d4d4d4, 1147px 200px #ededed, -722px -186px #cfcfcf, -850px -83px #c2c2c2, 37px -376px #c7c7c7, -96px 294px #f0f0f0, -401px 227px #f2f2f2, -760px -450px #c2c2c2, -644px -402px #d6d6d6, -15px -221px #ebebeb, 446px -268px #ebebeb, -389px 357px #d9d9d9, 234px -382px #d1d1d1, 644px -206px #dbdbdb, 630px 56px #c2c2c2, -542px -243px #ededed, 1073px -375px #d6d6d6, -637px -125px #ebebeb, 23px 455px #d6d6d6, -1487px -381px #e0e0e0, -373px -465px #d1d1d1, 956px -285px #e6e6e6, -530px -261px #d6d6d6, -652px 144px #f0f0f0, -181px -276px #d1d1d1, -619px 49px #e6e6e6, 94px 85px #f0f0f0, -566px -19px #ebebeb, 790px -146px #dedede, -455px 35px #dbdbdb, 1335px -316px #cccccc, 908px 447px #ebebeb, 1493px 254px #e8e8e8, 595px -96px #d6d6d6, 534px 219px whitesmoke, -455px 197px #f7f7f7, -1420px -151px #e8e8e8, -960px 451px #c7c7c7, -847px -132px #f2f2f2, -1425px 478px #d1d1d1, -771px 3px #d9d9d9, -444px -374px #fcfcfc, -1469px 53px #fcfcfc, -1451px -187px white, -121px 161px #c4c4c4, -347px -261px #dbdbdb, -994px -123px #f0f0f0, -748px 298px #d9d9d9, 837px 159px whitesmoke, -246px -266px #e3e3e3, 759px -92px #dbdbdb, -592px 274px whitesmoke, -665px -283px #e6e6e6, 359px -245px whitesmoke, -493px 234px #fcfcfc, 1027px 384px #f2f2f2, 798px 332px #f2f2f2, 252px -157px #f7f7f7, 887px -332px #dbdbdb, 1244px -352px #dbdbdb, -954px -140px #cfcfcf, -1239px -143px #f7f7f7, 819px 83px #fafafa, 1115px 93px #d6d6d6, 907px -48px #dedede, -225px 249px #f2f2f2, -157px 164px #e3e3e3, -1402px 293px #dbdbdb, 697px -397px #cfcfcf, -296px -375px #e0e0e0, 1442px 466px #e3e3e3, 1236px -471px #e8e8e8, 1426px -12px #f0f0f0, 504px 450px #e3e3e3, -583px -435px #dedede, 879px -461px #c7c7c7, -133px 432px #c2c2c2, -1246px -283px #cfcfcf, -249px -316px #d6d6d6, -889px -238px #fcfcfc;;
+    animation: fly 30s linear infinite;
+    transform-style: preserve-3d;
+}
+
+.stars:before, .stars:after {
+    content: "";
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    box-shadow: inherit;
+}
+
+.stars:before {
+    transform: translateZ(-300px);
+    animation: fade1 30s linear infinite;
+}
+
+.stars:after {
+    transform: translateZ(-600px);
+    animation: fade2 30s linear infinite;
+}
+
+.text-change-container {
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.text-change {
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 300%;
+    color: rgba(200, 200, 200, 1);
+    filter: drop-shadow(0 0 0.3em rgba(200, 200, 200, 0.3));
+    animation: jerkwhole 1s alternate-reverse infinite, jerk 50ms alternate infinite, jerkup 50ms infinite;
+}
+
+.dud {
+    color: rgba(200, 30, 30, 0.8);
+    filter: drop-shadow(0 0 0.5em red);
+}
+
+@keyframes fly {
+    from { transform: translateZ(0px); }
+    to { transform: translateZ(300px); }
+}
+
+@keyframes fade1 {
+    from { opacity: .5; }
+    to { opacity: 1; }
+}
+
+@keyframes fade2 {
+    from { opacity: 0; }
+    to { opacity: .5; }
+}
+
+@keyframes jerkwhole {
+    30% { }
+    40% { opacity: 1; top: 0; left: 0px; transform: scale(1, 1) skew(0, 0); }
+    41% { opacity: 0.8; top: 17px; left: -100px; transform: scale(1.2, 1) skew(20deg, 0); }
+    42% { opacity: 0.8; top: 0px; left: 50px; transform: scale(1.2, 1) skew(-40deg, 0); }
+    43% { opacity: 1; top: 0; left: 0; transform: scale(1, 1) skew(0, 0); }
+    65% { }
+}
+</style>
+<script>
+setTimeout(function(){
+    window.location.href = "formalstatic.github.io";
+}, 5000); // 5000 milliseconds = 5 seconds
+    // Function to redirect to the home page after 5 seconds
+    setTimeout(function(){
+        window.location.href = "formalstatic.github.io";
+    }, 5000); // 5000 milliseconds = 5 seconds
+
+// JavaScript
+function glitchAnimation(element) {
+  const steps = 20;
+  const animationDuration = 2000; // 2 seconds
+  const clipRange = 150;
+  const clipStart = 30;
+  const clipEnd = 350;
+
+  function animateGlitch() {
+    for (let i = 0; i <= steps; i++) {
+      const percentage = i / steps * 100;
+      setTimeout(() => {
+        const randomTop = Math.floor(Math.random() * clipRange) + clipStart;
+        const randomBottom = Math.floor(Math.random() * clipRange) + clipStart;
+        element.style.clip = `rect(${randomTop}px, ${clipEnd}px, ${randomBottom}px, ${clipStart}px)`;
+      }, (animationDuration / steps) * i);
+    }
+  }
+
+  animateGlitch();
+  setInterval(animateGlitch, animationDuration);
+}
+
+const glitchElement = document.querySelector('.wrapper h1.glitch');
+glitchAnimation(glitchElement);
+
+
+class TextScramble {
+  constructor(el) {
+    this.el = el;
+    this.chars = '!<>-_\\/[]{}—=+*^?#________qwertyuiopasldkfjghmnzbxcv';
+    this.update = this.update.bind(this);
+  }
+
+  setText(newText) {
+    const oldText = this.el.innerText;
+    const length = Math.max(oldText.length, newText.length);
+    const promise = new Promise((resolve) => this.resolve = resolve);
+    this.queue = [];
+    for (let i = 0; i < length; i++) {
+      const from = oldText[i] || '';
+      const to = newText[i] || '';
+      const start = Math.floor(Math.random() * 40);
+      const end = start + Math.floor(Math.random() * 40);
+      this.queue.push({ from, to, start, end });
+    }
+    cancelAnimationFrame(this.frameRequest);
+    this.frame = 0;
+    this.update();
+    return promise;
+  }
+
+  update() {
+    let output = '';
+    let complete = 0;
+    for (let i = 0, n = this.queue.length; i < n; i++) {
+      let { from, to, start, end, char } = this.queue[i];
+      if (this.frame >= end) {
+        complete++;
+        output += to;
+      } else if (this.frame >= start) {
+        if (!char || Math.random() < 0.28) {
+          char = this.randomChar();
+          this.queue[i].char = char;
+        }
+        output += `<span class="dud">${char}</span>`;
+      } else {
+        output += from;
+      }
+    }
+    this.el.innerHTML = output;
+    if (complete === this.queue.length) {
+      this.resolve();
+    } else {
+      this.frameRequest = requestAnimationFrame(this.update);
+      this.frame++;
+    }
+  }
+
+  randomChar() {
+    return this.chars[Math.floor(Math.random() * this.chars.length)];
+  }
+}
+
+// Function to initialize the text scramble effect
+function initTextScrambleEffect() {
+  const phrases = [
+    'REALITY UNSTABLE',
+    '404',
+    'GO BACK',
+    'LOST IN THE VOID',
+    'YOU\'VE GONE TOO FAR',
+    'THE VOID CONSUMES',
+    'GET OUT'
+  ];
+
+  const el = document.querySelector('.text-change');
+  const fx = new TextScramble(el);
+
+  const next = () => {
+    const randomIndex = Math.floor(Math.random() * phrases.length);
+    fx.setText(phrases[randomIndex]).then(() => {
+      setTimeout(next, 800);
+    });
+  };
+
+  next(); // Start the text scramble effect
+}
+
+// Wait for the window to load before initializing the text scramble effect
+window.onload = initTextScrambleEffect;
+</script>
+</head>
+<body>
+    <div class="stars">
+        
+    </div> 
+    <div class="text-change-container glitch">
+        <div class="text-change glitch"></div>
+      </div><div class="text-change-container glitch">
+        <div class="text-change glitch"></div>
+      </div>
+</div>
+</body>
+</html>
+ 
