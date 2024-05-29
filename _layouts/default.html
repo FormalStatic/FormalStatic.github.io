@@ -24,7 +24,7 @@
       fixed; top: 0; left: 0; height: auto;} .center { color:
       #fff; display: flex; align-items: center; justify-content: center; /* Center
       horizontally */ text-align: center; /* Center text */ } h1 { display: inline-block;
-      padding-right: 5px; border-right: 10px solid #fff;} .image { position: fixed; /* Position fixed */ bottom: 0; /*
+      padding-right: 5px; } .image { position: fixed; /* Position fixed */ bottom: 0; /*
       Position at the bottom */ left: 0; /* Position at the left */ width: 100px;
       /* Adjust image width as needed */ height: auto; /* Maintain aspect ratio
       */ border-radius: 0%; /* Optional: Round image corners */ -webkit-user-drag:
@@ -248,7 +248,7 @@
       <img class="image" src="https://github.com/FormalStatic/FormalStatic.github.io/blob/master/images/trees.png?raw=true"
       alt="Hawaii P.2 Trees" style="size: 100px;" id="soundImage">
       <audio id="sound">
-        <source src="https://t4.bcbits.com/stream/c8495f0fab411cea4c91e56b79d5c2af/mp3-128/2986530689?p=0&ts=1708641472&t=a30aa3f704f300e6c84e623691f17c61099f5cc7&token=1708641472_1cc9ff1473450ccc5224b5df64006060c7a89a9c"
+        <source src="https://github.com/FormalStatic/FormalStatic.github.io/blob/master/images/DSISM.mp3"
         type="audio/mpeg">
           Your browser does not support the audio element.
       </audio>
@@ -264,7 +264,7 @@
           {% for post in site.posts %}
             <article class="post">
         
-              <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+              <h1><a href="{{ site.baseurl }}{{ post.url }}" style="text-decoration:none">{{ post.title }}</a></h1>
         
               <div class="entry">
                 {{ post.excerpt }}
