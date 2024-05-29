@@ -1,13 +1,154 @@
-<article class="post">
-  <h1>{{ page.title }}</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-  <div class="entry">
-    {{ content }}
-  </div>
+  <head>
+    <meta charset="UTF-8">
+     <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
 
-  <div class="date">
-    Written on {{ page.date | date: "%B %e, %Y" }}
-  </div>
+    {% include meta.html %}
 
-  {% include disqus.html %}
-</article>
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+    <link rel="icon" href="https://github.com/FormalStatic/FormalStatic.github.io/blob/master/images/TV.png?raw=true">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <style>
+      body, html { font-family: 'Press Start 2P', cursive; cursor: auto; overflow-x:
+      hidden; /* Hide horizontal overflow */ overflow-y: auto; /* Allow vertical
+      overflow */ } /* Canvas styles */ canvas { background-color: black; position:
+      fixed; top: 0; left: 0; height: auto;} .center { color:
+      #fff; display: flex; align-items: center; justify-content: center; /* Center
+      horizontally */ text-align: center; /* Center text */ } h1 { display: inline-block;
+      padding-right: 5px; border-right: 10px solid #fff; animation: blink 1s
+      infinite; } .image { position: fixed; /* Position fixed */ bottom: 0; /*
+      Position at the bottom */ left: 0; /* Position at the left */ width: 100px;
+      /* Adjust image width as needed */ height: auto; /* Maintain aspect ratio
+      */ border-radius: 0%; /* Optional: Round image corners */ -webkit-user-drag:
+      none; user-select: none; -moz-user-select: none; -webkit-user-select: none;
+      -ms-user-select: none; } .spaget { position: inherit;; /* Position fixed
+      */ bottom: 60px; float: right; width: 75px; /* Adjust image width as needed
+      */ height: auto; /* Maintain aspect ratio */ border-radius: 0%; /* Optional:
+      Round image corners */ -webkit-user-drag: none; user-select: none; -moz-user-select:
+      none; -webkit-user-select: none; -ms-user-select: none; } @keyframes pulse
+      { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform:
+      scale(1); } } .title { display: flex; justify-content: space-between; /*
+      Align items at opposite ends of the container */ align-items: center; /*
+      Center items vertically */ } .title img { margin-right: 10px; /* Adjust
+      spacing between image and text */ } .title #randomText { color: yellow;
+      animation: pulse 1s infinite; width: 50%; rotate: 28deg; position: absolute;
+        right: 0; text-align: center; } .container { width: 100%; display: flex;
+        justify-content: center; align-items: center; flex-direction: column; padding: 20px;/*
+        Center content vertically */  /* Add padding around content
+        */ padding-top: 10%; } .container2 { width: 100%; display: flex;
+        justify-content: center; align-items: center; flex-direction: column; /*
+        Center content vertically */ padding: 20px; /* Add padding around content
+        */ padding-top: 5%; }/* Adjust the NES container to fit the screen */
+      .nes-container { max-width: 800px; /* Set a maximum width */ width: 100%;
+      /* Ensure it takes full width of the container */ }
+    </style>
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet"
+    />
+  </head>
+  
+  <body>
+    <script>
+    
+
+    var Snow = {
+        el: "#snow",
+        density: 50000,
+        maxHSpeed: 5,
+        minFallSpeed: 2,
+        canvas: null,
+        ctx: null,
+        particles: [],
+        colors: [],
+        mp: 1,
+        init() {
+            this.canvas = document.querySelector(this.el);
+            this.ctx = this.canvas.getContext("2d");
+            this.reset();
+            window.addEventListener("resize", this.reset.bind(this));
+            this.render();
+        },
+        reset() {
+            this.w = window.innerWidth;
+            this.h = window.innerHeight;
+            this.canvas.width = this.w;
+            this.canvas.height = this.h;
+            this.particles = [];
+            this.mp = Math.ceil(this.w * this.h / this.density);
+            for (var i = 0; i < this.mp; i++) {
+                var size = Math.random() * 4 + 5;
+                this.particles.push({
+                    x: Math.random() * this.w,
+                    y: Math.random() * this.h,
+                    w: size,
+                    h: size,
+                    vy: this.minFallSpeed + Math.random(),
+                    vx: (Math.random() * this.maxHSpeed) - this.maxHSpeed / 2,
+                    fill: "#ffffff",
+                    s: (Math.random() * 0.2) - 0.1
+                });
+            }
+        },
+        render() {
+            this.ctx.clearRect(0, 0, this.w, this.h);
+            this.particles.forEach((p, i) => {
+                p.y += p.vy;
+                p.x += p.vx;
+                this.ctx.fillStyle = p.fill;
+                this.ctx.fillRect(p.x, p.y, p.w, p.h);
+                if (p.x > this.w + 5 || p.x < -5 || p.y > this.h) {
+                    p.x = Math.random() * this.w;
+                    p.y = -10;
+                }
+            });
+            requestAnimationFrame(this.render.bind(this));
+        },
+        destroy() {
+            cancelAnimationFrame(this.animationFrameId);
+        }
+    };
+
+    document.addEventListener("DOMContentLoaded", function() {
+        Snow.init();
+    });
+
+    window.onload = function() {
+    console.log(`%c Alone at the edge of a universe humming a tune!`, "font-size: 24px; background: linear-gradient(to right,#d16ba5,#86a8e7,#5ffbf1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;");
+    };
+    
+    </script>
+    <canvas id="snow">
+    </canvas>
+    <div class="container">
+      <div class="nes-container is-rounded" style=" color: #fff; border-color: #fff; background-color: rgba(100, 100, 100, 0.493); ">
+        <article class="post">
+          <h1>{{ page.title }}</h1>
+        
+          <div class="entry">
+            {{ content }}
+          </div>
+        
+          <div class="date">
+            Written on {{ page.date | date: "%B %e, %Y" }}
+          </div>
+        
+          {% include disqus.html %}
+        </article>
+        
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
+
+
+
